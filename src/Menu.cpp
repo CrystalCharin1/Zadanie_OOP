@@ -1,11 +1,11 @@
 #include "Menu.h"
 #include <iostream>
 
-// Функция для отображения меню
+// Display program menu
 void displayMenu() {
-    std::cout << "Меню:\n"
-        "1 - Ввод с клавиатуры\n"
-        "2 - Ввод из файла\n"
-        "3 - Вывести результат\n"
-        "4 - Выход\n";
+    std::cout << "Menu:\n"
+        "1 - Load from keyboard\n"
+        "2 - Load from file\n"
+        "3 - Show results\n"
+        "4 - Exit\n";
 }
