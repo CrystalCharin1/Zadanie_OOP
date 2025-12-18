@@ -1,33 +1,33 @@
 #include "Stack.h"
 #include <iostream>
 
-// Конструктор
+// Constructor
 Stack::Stack() : top(-1) {}
 
-// Деструктор
+// Destructor
 Stack::~Stack() {
 	while (!isEmpty()) {
 		pop();
 	}
 }
-bool Stack::isEmpty() const { return top == -1; } // Проверка на пустоту стека
+bool Stack::isEmpty() const { return top == -1; } // Check if stack is empty
 
-bool Stack::isFull() const { return top == MAX_SIZE - 1; } // Проверка на заполненность стека
+bool Stack::isFull() const { return top == MAX_SIZE - 1; } // Check if stack is full
 
-// Добавление вагона в стек
+// Push wagon into the stack
 void Stack::push(Wagon* w) {
 	if (isFull()) {
-		std::cout << "Стек заполнен. Невозможно добавить вагон - " << w->getType() << std::endl;
+		std::cout << "Stack is full. Cannot push wagon - " << w->getType() << std::endl;
 	}
 	else {
 		data[++top] = w;
 	}
 }
 
-// Удаление вагона из стека
+// Pop wagon from the stack
 Wagon* Stack::pop() {
 	if (isEmpty()) {
-		std::cout << "Стек пустой!!" << std::endl;
+		std::cout << "Stack is empty!!" << std::endl;
 		return nullptr;
 	}
 	else {
