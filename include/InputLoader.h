@@ -9,10 +9,10 @@
 
 class InputLoader {
 public:
-    // ¬вод с клавиатуры
+    // Load from keyboard
     void loadFromKeyboard(Stack& stack);
 
-    // ¬вод из файла
+    // Load from file
     void loadFromFile(Stack& stack, const char* filename);
 };
 #endif
