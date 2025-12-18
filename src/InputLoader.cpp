@@ -1,35 +1,35 @@
 #include "InputLoader.h"
 
-// Ввод вагонов с клавиатуры
+// Load wagons from keyboard
 void InputLoader::loadFromKeyboard(Stack& stack) {
     int n;
     std::string type;
 
-    std::cout << "Введите кол-во вагонов: ";
+    std::cout << "Enter number of wagons: ";
     std::cin >> n;
 
     for (int i = 0; i < n; i++) {
-        std::cout << "Введите тип вагона (A/B): ";
+        std::cout << "Enter wagon type (A/B): ";
         std::cin >> type;
 
-        Wagon* w = WagonFactory::createWagon(type); // фабричный метод
+        Wagon* w = WagonFactory::createWagon(type); // create wagon
         if (w) stack.push(w);
-        else std::cout << "Неизвестный тип: " << type << std::endl;
+        else std::cout << "Invalid type: " << type << std::endl;
     }
 }
 
-// Ввод вагонов из файла
+// Load wagons from file
 void InputLoader::loadFromFile(Stack& stack, const char* filename) {
     std::ifstream file(filename);
     if (!file) {
-        std::cout << "Не удалось открыть файл: " << filename << std::endl;
+        std::cout << "Cannot open file: " << filename << std::endl;
         return;
     }
 
     std::string type;
     while (file >> type) {
-        Wagon* w = WagonFactory::createWagon(type); // фабричный метод
+        Wagon* w = WagonFactory::createWagon(type); // create wagon
         if (w) stack.push(w);
-        else std::cout << "Неизвестный тип: " << type << std::endl;
+        else std::cout << "Invalid type: " << type << std::endl;
     }
 }
