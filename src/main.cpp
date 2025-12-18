@@ -5,21 +5,20 @@
 #include <chrono>
 
 int main() {
-	setlocale(LC_ALL, "Russian"); // Поддержка русского языка
 	Sorting sorting;
 	int choice;
 
-	//Цикл работает пока не вернётся False(0)
+	// Main program loop (runs until exit)
 	while (true) {
 		displayMenu();
-		std::cout << "Введите номер действия: " << std::endl;
+		std::cout << "Enter menu choice: " << std::endl;
 		std::cin >> choice;
 
 		switch (choice) {
 		case 1:
-			system("cls"); //Чистка терминала
+			system("cls"); // clear console
 			sorting.loadFromKeyboard(sorting);
-			sorting.process(); // сортировка
+			sorting.process(); // process sorting
 			system("cls");
 			break;
 		case 2:
