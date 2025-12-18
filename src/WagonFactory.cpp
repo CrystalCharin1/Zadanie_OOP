@@ -1,6 +1,6 @@
 #include "WagonFactory.h"
 
-// Фабричный метод для создания вагонов
+// Factory method for creating wagons by type
 Wagon* WagonFactory::createWagon(const std::string& type) { 
 	if (type == "A" || type == "B") {
 		return new Wagon(type);
