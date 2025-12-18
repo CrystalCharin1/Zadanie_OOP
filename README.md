@@ -126,4 +126,57 @@ public:
       - Вагон типа “A” → **trackA**
       - Вагон типа “B” → **trackB**
 ## 5. Паттерн Factory Method
+### Структура:
+### 1. Абстрактный продукт
+``` C++
+class InputLoader {
+public:
+    void loadFromKeyboard();          // ввод вагонов с клавиатуры
+    void loadFromFile(const char*);   // ввод вагонов из файла
+};
+```
+### Конкретные продукты
+``` C++
+void loadFromKeyboard();          // ввод вагонов с клавиатуры
+void loadFromFile(const char*);   // ввод вагонов из файла
+```
+### Фабрика
+Класс **WagonFactory** создаёт объекты Wagon:
+``` C++
+class WagonFactory {
+public:
+    static Wagon* createWagon(const std::string& type); // тип A или B
+};
+```
+##Исходные данные
+``` text
+A A B A B #Ввод с клавиатуры
+```
+## Пример работы
+``` text
+Menu:
+1 - Load from keyboard
+2 - Load from file
+3 - Display result
+4 - Exit
+Enter action number: 1
 
+Enter number of wagons: 5
+Enter wagon type (A/B): A
+Enter wagon type (A/B): A
+Enter wagon type (A/B): B
+Enter wagon type (A/B): A
+Enter wagon type (A/B): B
+
+Menu:
+1 - Load from keyboard
+2 - Load from file
+3 - Display result
+4 - Exit
+Enter action number: 3
+
+Wagons in track A:
+A A A
+Wagons in track B:
+B B
+```
